@@ -1,0 +1,103 @@
+{
+	"id": "com.secure",
+	"name": {
+		"en": "Secure / Horstmann"
+	},
+	"version": "0.0.1",
+	"compatibility": ">=0.9.3",
+	"description": {
+		"en": "Secure / Horstmann devices for Homey"
+	},
+	"category": [
+		"climate"
+	],
+	"images": {
+		"large": "/assets/images/large.jpg",
+		"small": "/assets/images/small.jpg"
+	},
+	"author": {
+		"name": "Patrick van der Westen",
+		"email": "pvdwesten@hotmail.com"
+	},
+	"drivers": [
+		{
+			"id": "LC13",
+			"name": {
+				"en": "LC-13"
+			},
+			"zwave": {
+				"manufacturerId": 2,
+				"productTypeId": 5,
+				"wakeUpInterval": 1800,
+				"productId": [
+					3,
+					4
+				],
+				"learnmode": {
+					"instruction": {
+						"en": "Press the middle button on your Danfoss LC-13",
+						"nl": "Druk op de middelste knop van de Danfoss LC-13"
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"mobile": {
+				"components": [
+					{
+						"id": "icon",
+						"capabilities": [
+						]
+					},
+					{
+						"id": "battery",
+						"capabilities": [
+							"measure_battery"
+						]
+					},
+					{
+						"id": "thermostat",
+						"capabilities": [
+							"target_temperature"
+						]
+					}
+				]
+			},
+			"class": "thermostat",
+			"capabilities": [
+				"target_temperature",
+				"measure_battery"
+			],
+			"capabilitiesOptions": {
+				"target_temperature": {
+					"min": 4,
+					"max": 28,
+					"step": 0.5
+				}
+			},
+			"images": {
+				"large": "/drivers/LC13/assets/images/large.jpg",
+				"small": "/drivers/LC13/assets/images/small.jpg"
+			}
+		}
+	],
+	"flow": {
+		"triggers": [
+			{
+				"id": "battery_alarm",
+				"title": {
+					"en": "The battery alarm turned on",
+					"nl": "De batterijwaarschuwing gaat aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=LC13"
+					}
+				]
+			}
+		]
+	}
+}
