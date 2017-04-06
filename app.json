@@ -1,10 +1,11 @@
 {
 	"id": "com.horstmann",
 	"name": {
-		"en": "Secure / Horstmann"
+		"en": "Secure / Horstmann",
+		"nl": "Secure / Horstmann"
 	},
-	"version": "0.0.2",
-	"compatibility": ">=1.1.x",
+	"version": "0.0.3",
+	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
 	},
@@ -19,18 +20,59 @@
 		"name": "Patrick van der Westen.",
 		"email": "pvdwesten@hotmail.com"
 	},
+  "capabilities": {
+    "custom_thermostat_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat mode"
+      },
+      "getable": true,
+      "setable": false
+    }
+  },
 	"drivers": [
 		{
 			"id": "SRT321",
 			"name": {
-				"en": "SRT321"
+				"en": "SRT321 Thermostat",
+				"nl": "SRT321 Thermostaat"
 			},
 			"class": "thermostat",
 			"capabilities": [
+				"custom_thermostat_mode",
 				"measure_temperature",
 				"target_temperature",
 				"measure_battery"
 			],
+      "mobile": {
+        "components": [
+          {
+            "capabilities": [
+			"custom_thermostat_mode"
+			],
+            "id": "icon"
+          },
+          {
+            "capabilities": [
+              "measure_battery"
+            ],
+            "id": "battery"
+          },
+          {
+            "capabilities": [
+              "measure_temperature"
+            ],
+            "id": "sensor"
+          },
+          {
+            "capabilities": [
+              "target_temperature"
+            ],
+            "id": "thermostat"
+          }
+        ]
+      },
 			"zwave": {
 				"manufacturerId": 89,
 				"productTypeId": 1,
@@ -46,7 +88,7 @@
 					}
 				},
 				"associationGroups": [
-					1,1,1,1,1
+					1,2,3,4,5,6
 				]
 			},
 			"images": {
@@ -103,10 +145,11 @@
 				}
 			]
 		},
-				{
+		{
 			"id": "HRT4ZW",
 			"name": {
-				"en": "Boiler control switch HRT4ZW"
+				"en": "HRT4ZW Boiler control switch ",
+				"nl": "HRT4ZW ketel schakelaar"
 			},
 			"class": "socket",
 			"capabilities": ["onoff"],
@@ -123,7 +166,7 @@
 					}
 				},
 				"associationGroups": [
-					1
+					1,2,3
 				]
 			},
 			"images": {
