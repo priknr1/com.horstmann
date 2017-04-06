@@ -2,6 +2,8 @@
 
 This app adds support for Secure / Horstmann devices.
 If updating from V0.0.2 to V0.0.3  the units have to be re-added
+On local change, Target temperature in Homey is updated immediatly,  
+On target change in Homey, Target is updated after wake-up of the Thermostat
 
 
 ##Currently supported devices:
