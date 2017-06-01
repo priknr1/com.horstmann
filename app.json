@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -45,7 +45,7 @@
 				"target_temperature",
 				"measure_battery"
 			],
-      "mobile": {
+			"mobile": {
         "components": [
           {
             "capabilities": [
@@ -146,6 +146,68 @@
 			]
 		},
 		{
+			"id": "SES302",
+			"name": {
+				"en": "SES302 Temperature Sensor",
+				"nl": "SES302 Temperatuur sensor"
+			},
+			"class": "thermostat",
+			"capabilities": [
+				"measure_temperature",
+				"measure_battery"
+			],
+			"mobile": {
+        "components": [
+          {
+            "capabilities": [
+              "measure_battery"
+            ],
+            "id": "battery"
+          },
+          {
+            "capabilities": [
+              "measure_temperature"
+            ],
+            "id": "sensor"
+          }
+        ]
+      },
+			"zwave": {
+				"manufacturerId": 89,
+				"productTypeId": 13,
+				"wakeUpInterval": 1800,
+				"productId": 2,
+				"learnmode": {
+					"instruction": {
+						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
+						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
+					}
+				},
+				"associationGroups": [
+					1,2,3,4,5,6
+				]
+			},
+			"images": {
+				"large": "/drivers/SES302/assets/images/large.jpg",
+				"small": "/drivers/SES302/assets/images/small.jpg"
+			},
+			"settings": [
+				{
+					"id": "temperature_unit",
+					"type": "checkbox",
+					"label": {
+						"en": "Temperature unit Kelvin",
+						"nl": "Temperatuureenheid in Kelvin"
+					},
+					"hint": {
+						"en": "Default is Celcius, Check on is Kelvin ",
+						"nl": "Standaard is Celcius, Check aan is Kelvin"
+					},
+					"value": false
+				}
+			]
+		},
+		{
 			"id": "HRT4ZW",
 			"name": {
 				"en": "HRT4ZW Boiler control switch ",
@@ -157,7 +219,7 @@
 				"manufacturerId": 89,
 				"productTypeId": 3,
 				"productId": [
-					1
+					1,5
 				],
 				"learnmode": {
 					"instruction": {

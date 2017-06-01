@@ -7,8 +7,12 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 
 
 ##Currently supported devices:
-* HRT4-ZW   http://products.z-wavealliance.org/products/125  Patrick (pvdwesten at hotmail.com)
-* SRT321  	http://products.z-wavealliance.org/products/115  Patrick (pvdwesten at hotmail.com)
+* HRT4-ZW   http://products.z-wavealliance.org/products/125
+* SRT321  	http://products.z-wavealliance.org/products/115
+* SRT323	http://products.z-wavealliance.org/products/1241
+* SSR303	http://products.z-wavealliance.org/products/1618
+* SES302	http://products.z-wavealliance.org/products/1240
+
 
 
 ##Not Working:
@@ -16,6 +20,9 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 
 
 ##Changelog:
+0.1.0
+* Added Device ID for other version of HRT4-ZW, called  SSR303
+* Added Temperature Sensor SES302
  
 0.0.3
 * Set target temperature on SRT321
