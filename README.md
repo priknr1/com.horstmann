@@ -22,6 +22,7 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 * SRT323	http://products.z-wavealliance.org/products/1241
 * SSR303	http://products.z-wavealliance.org/products/1618
 * SES302	http://products.z-wavealliance.org/products/1240
+* SES303	http://products.z-wavealliance.org/products/1175
 
 
 
@@ -30,6 +31,10 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 
 
 ##Changelog:
+
+0.1.1
+* Added Temperature/humidity Sensor SES303
+
 0.1.0
 * Added Device ID for other version of HRT4-ZW, called  SSR303
 * Added Temperature Sensor SES302

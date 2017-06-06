@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -171,7 +171,7 @@
             "id": "sensor"
           }
         ]
-      },
+			},
 			"zwave": {
 				"manufacturerId": 89,
 				"productTypeId": 13,
@@ -206,6 +206,60 @@
 					"value": false
 				}
 			]
+		},
+		{
+			"id": "SES303",
+			"name": {
+				"en": "SES303 Temperature/Hmuidity Sensor",
+				"nl": "SES303 Temperatuur/Vochtigheid sensor"
+			},
+			"class": "thermostat",
+			"capabilities": [
+				"measure_humidity",
+				"measure_temperature",
+				"measure_battery"
+			],
+			"mobile": {
+        "components": [
+          {
+            "capabilities": [
+              "measure_battery"
+            ],
+            "id": "battery"
+          },
+          {
+            "capabilities": [
+              "measure_temperature"
+            ],
+            "id": "sensor"
+          },
+          {
+            "capabilities": [
+              "measure_humidity"
+            ],
+            "id": "sensor"
+          }
+        ]
+			},
+			"zwave": {
+				"manufacturerId": 89,
+				"productTypeId": 13,
+				"wakeUpInterval": 1800,
+				"productId": 3,
+				"learnmode": {
+					"instruction": {
+						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
+						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
+					}
+				},
+				"associationGroups": [
+					1,2,3,4,5,6
+				]
+			},
+			"images": {
+				"large": "/drivers/SES303/assets/images/large.jpg",
+				"small": "/drivers/SES303/assets/images/small.jpg"
+			}
 		},
 		{
 			"id": "HRT4ZW",
