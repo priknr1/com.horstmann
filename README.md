@@ -32,6 +32,11 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 
 ##Changelog:
 
+0.1.2
+* Added Settings for Temperature/humidity Sensor SES303
+* Added Settings for Temperature Sensor SES302
+
+
 0.1.1
 * Added Temperature/humidity Sensor SES303
 
