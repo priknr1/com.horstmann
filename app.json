@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -179,8 +179,8 @@
 				"productId": 2,
 				"learnmode": {
 					"instruction": {
-						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
-						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
+						"en": "Press the button and hold it for at least 1 second, than release",
+						"nl": "Druk de knop minimaal 1 seconde in, laat daarna los"
 					}
 				},
 				"associationGroups": [
@@ -190,27 +190,39 @@
 			"images": {
 				"large": "/drivers/SES302/assets/images/large.jpg",
 				"small": "/drivers/SES302/assets/images/small.jpg"
-			},
+				},
+			,
 			"settings": [
 				{
-					"id": "temperature_unit",
-					"type": "checkbox",
-					"label": {
-						"en": "Temperature unit Kelvin",
-						"nl": "Temperatuureenheid in Kelvin"
-					},
-					"hint": {
-						"en": "Default is Celcius, Check on is Kelvin ",
-						"nl": "Standaard is Celcius, Check aan is Kelvin"
-					},
-					"value": false
+				"id": 1,
+				"value": 0,
+				"label": {
+					"en": "Delta Temperature "
+				},
+				"hint": {
+					"en": "Configure the delta based temperature report.\nTo configure Delta temperature reporting to 2 °C. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
+				},
+				{
+				"id": 2,
+				"value": 5,
+				"label": {
+					"en": "Temp Reporting Intervals "
+				},
+				"hint": {
+					"en": "Configure the time interval based temperature report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
 				}
 			]
 		},
 		{
 			"id": "SES303",
 			"name": {
-				"en": "SES303 Temperature/Hmuidity Sensor",
+				"en": "SES303 Temperature/Humidity Sensor",
 				"nl": "SES303 Temperatuur/Vochtigheid sensor"
 			},
 			"class": "thermostat",
@@ -248,8 +260,8 @@
 				"productId": 3,
 				"learnmode": {
 					"instruction": {
-						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
-						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
+						"en": "Press the button and hold it for at least 1 second, than release",
+						"nl": "Druk de knop minimaal 1 seconde in, laat daarna los"
 					}
 				},
 				"associationGroups": [
@@ -259,7 +271,57 @@
 			"images": {
 				"large": "/drivers/SES303/assets/images/large.jpg",
 				"small": "/drivers/SES303/assets/images/small.jpg"
-			}
+			},
+			"settings": [
+				{
+				"id": 1,
+				"value": 0,
+				"label": {
+					"en": "Delta Temperature "
+				},
+				"hint": {
+					"en": "Configure the delta based temperature report.\nTo configure Delta temperature reporting to 2 °C. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
+				},
+				{
+				"id": 2,
+				"value": 5,
+				"label": {
+					"en": "Temp Reporting Intervals "
+				},
+				"hint": {
+					"en": "Configure the time interval based temperature report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
+				},
+				{
+				"id": 3,
+				"value": 5,
+				"label": {
+					"en": "Delta Humidity"
+				},
+				"hint": {
+					"en": "Configure the delta based humidity report.\nTo configure Delta humidity reporting to 2 %Rh. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
+				},
+				{
+				"id": 4,
+				"value": 5,
+				"label": {
+					"en": "Humidity Reporting Interval"
+				},
+				"hint": {
+					"en": "Configure the time interval based humidity report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+				},
+				"_size": 1,
+				"type": "number"
+				}
+			]
 		},
 		{
 			"id": "HRT4ZW",
