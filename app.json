@@ -313,36 +313,36 @@
 					"type": "number"
 				},
 				{
-				"id": "Humidity_Delta",
-				"value": 1,
-				"attr": {
-					"min": 1,
-					"max": 127
-				},
-				"label": {
-					"en": "Delta Humidity (%)"
-				},
-				"hint": {
-					"en": "Configure the delta based humidity report Unit: 0.1 %.\nTo configure Delta humidity reporting to 2 %Rh. The value to configure is 20.\n"
-				},
-				"_size": 1,
-				"type": "number"
-				},
+					"id": "Humidity_Delta",
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Delta Humidity (%)"
+					},
+					"hint": {
+						"en": "Configure the delta based humidity report Unit: 0.1 %.\nTo configure Delta humidity reporting to 2 %Rh. The value to configure is 20.\n"
+					},
+					"_size": 1,
+					"type": "number"
+					},
 				{
-				"id": "Humidity_Report_interval",
-				"value": 5,
-				"attr": {
-					"min": 1,
-					"max": 127
-				},
-				"label": {
-					"en": "Humidity Reporting Interval (mins)"
-				},
-				"hint": {
-					"en": "Configure the time interval based humidity report.\nValue in minutes\n"
-				},
-				"_size": 1,
-				"type": "number"
+					"id": "Humidity_Report_interval",
+					"value": 5,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Humidity Reporting Interval (mins)"
+					},
+					"hint": {
+						"en": "Configure the time interval based humidity report.\nValue in minutes\n"
+					},
+					"_size": 1,
+					"type": "number"
 				}
 			]
 		},
