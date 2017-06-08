@@ -112,17 +112,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		}
 	},
 	settings: {
-		"enable_temperature_sensor": {
-		"index": 1,
-		"size": 1
+		Temp_Delta: {
+			index: 1,
+			size: 1,
 		},
-		"temperature_unit": {
-			"index": 2,
-			"size": 1
-		},
-		"temperature_delta": {
-			"index": 3,
-			"size": 1
+		Temp_Report_Interval: {
+			index: 2,
+			size: 1,
 		}
 	}
 });

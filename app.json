@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -193,28 +193,36 @@
 				},
 			"settings": [
 				{
-				"id": 1,
-				"value": 0,
-				"label": {
-					"en": "Delta Temperature "
-				},
-				"hint": {
-					"en": "Configure the delta based temperature report.\nTo configure Delta temperature reporting to 2 °C. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
-				},
-				"_size": 1,
-				"type": "number"
+					"id": "Temp_Delta",
+					"type": "number",
+					"_size": 1,
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Delta Temperature (°C) "
+					},
+					"hint": {
+						"en": "Configure the delta based temperature report Unit: 0.1 °C.\nTo configure Delta temperature reporting to 2 °C. The value to configure is 20.\n"
+					}
 				},
 				{
-				"id": 2,
-				"value": 5,
-				"label": {
-					"en": "Temp Reporting Intervals "
-				},
-				"hint": {
-					"en": "Configure the time interval based temperature report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
-				},
-				"_size": 1,
-				"type": "number"
+					"id": "Temp_Report_Interval",
+					"type": "number",
+					"_size": 1,
+					"value": 5,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Temp Reporting Intervals (mins)"
+					},
+					"hint": {
+						"en": "Configure the time interval based temperature report.\nValue in minutes\n"
+					}
 				}
 			]
 		},
@@ -273,49 +281,65 @@
 			},
 			"settings": [
 				{
-				"id": 1,
-				"value": 0,
+					"id": "Temp_Delta",
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Delta Temperature (°C) "
+					},
+					"hint": {
+						"en": "Configure the delta based temperature report Unit: 0.1 °C.\nTo configure Delta temperature reporting to 2 °C. The value to configure is 20.\n"
+					},
+					"_size": 1,
+					"type": "number"
+				},
+				{
+					"id": "Temp_Report_Interval",
+					"value": 5,
+					"attr": {
+						"min": 1,
+						"max": 127
+					},
+					"label": {
+						"en": "Temp Reporting Intervals (mins)"
+					},
+					"hint": {
+						"en": "Configure the time interval based temperature report.\nValue in minutes\n"
+					},
+					"_size": 1,
+					"type": "number"
+				},
+				{
+				"id": "Humidity_Delta",
+				"value": 1,
+				"attr": {
+					"min": 1,
+					"max": 127
+				},
 				"label": {
-					"en": "Delta Temperature "
+					"en": "Delta Humidity (%)"
 				},
 				"hint": {
-					"en": "Configure the delta based temperature report.\nTo configure Delta temperature reporting to 2 °C. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+					"en": "Configure the delta based humidity report Unit: 0.1 %.\nTo configure Delta humidity reporting to 2 %Rh. The value to configure is 20.\n"
 				},
 				"_size": 1,
 				"type": "number"
 				},
 				{
-				"id": 2,
+				"id": "Humidity_Report_interval",
 				"value": 5,
+				"attr": {
+					"min": 1,
+					"max": 127
+				},
 				"label": {
-					"en": "Temp Reporting Intervals "
+					"en": "Humidity Reporting Interval (mins)"
 				},
 				"hint": {
-					"en": "Configure the time interval based temperature report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
-				},
-				"_size": 1,
-				"type": "number"
-				},
-				{
-				"id": 3,
-				"value": 5,
-				"label": {
-					"en": "Delta Humidity"
-				},
-				"hint": {
-					"en": "Configure the delta based humidity report.\nTo configure Delta humidity reporting to 2 %Rh. The value need to configured in device is 2/0.1 = 20.\n\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
-				},
-				"_size": 1,
-				"type": "number"
-				},
-				{
-				"id": 4,
-				"value": 5,
-				"label": {
-					"en": "Humidity Reporting Interval"
-				},
-				"hint": {
-					"en": "Configure the time interval based humidity report.\nControllers may only allow configuring signed values. In order to set values in the range 128…255, the value sent in the application shall be equal to desired value minus 256. For example, to set Delta Temperature to 130, it may be needed to set a value 130−256=−126.\n"
+					"en": "Configure the time interval based humidity report.\nValue in minutes\n"
 				},
 				"_size": 1,
 				"type": "number"

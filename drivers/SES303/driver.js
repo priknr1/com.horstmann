@@ -58,5 +58,23 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				return report['Sensor Value (Parsed)'];
 			}
 		}
+	},
+	settings: {
+		Temp_Delta: {
+			index: 1,
+			size: 1,
+		},
+		Temp_Report_Interval: {
+			index: 2,
+			size: 1,
+		},
+		Humidity_Delta: {
+			index: 3,
+			size: 1,
+		},
+		Humidity_Report_Interval: {
+			index: 4,
+			size: 1,
+		}
 	}
 });
