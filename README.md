@@ -31,6 +31,9 @@ On target change in Homey, Target is updated after wake-up of the Thermostat
 
 
 ##Changelog:
+0.1.4
+* SRT323 was seen as SRT321. Now has is own ID.
+
 0.1.3
 * Add settings for 302 and 303 into drivers,
 * Changed comment for settings

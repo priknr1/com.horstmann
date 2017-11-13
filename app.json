@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -33,6 +33,116 @@
   },
 	"drivers": [
 		{
+			"id": "SRT323",
+			"name": {
+				"en": "SRT323 Thermostat",
+				"nl": "SRT323 Thermostaat"
+			},
+			"class": "thermostat",
+			"capabilities": [
+				"custom_thermostat_mode",
+				"measure_temperature",
+				"target_temperature",
+				"measure_battery"
+			],
+			"mobile": {
+        "components": [
+          {
+            "capabilities": [
+			"custom_thermostat_mode"
+			],
+            "id": "icon"
+          },
+          {
+            "capabilities": [
+              "measure_battery"
+            ],
+            "id": "battery"
+          },
+          {
+            "capabilities": [
+              "measure_temperature"
+            ],
+            "id": "sensor"
+          },
+          {
+            "capabilities": [
+              "target_temperature"
+            ],
+            "id": "thermostat"
+          }
+        ]
+      },
+			"zwave": {
+				"manufacturerId": 89,
+				"productTypeId": 1,
+				"wakeUpInterval": 1800,
+				"productId": 4,
+				"learnmode": {
+					"instruction": {
+						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
+						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
+					}
+				},
+				"associationGroups": [
+					1,2,3,4,5,6
+				]
+			},
+			"images": {
+				"large": "/drivers/SRT321/assets/images/large.jpg",
+				"small": "/drivers/SRT321/assets/images/small.jpg"
+			},
+			"settings": [
+				{
+					"id": "enable_temperature_sensor",
+					"type": "number",
+					"label": {
+						"en": "Enable Temperature Sensor",
+						"nl": "Zet temperatuur sensor aan"
+					},
+					"value": 128,
+					"attr": {
+						"min": 1,
+						"max": 255
+					},
+					"hint": {
+						"en": "1-127 = Off, 128-255 = On",
+						"nl": "1-127 = Uit, 128-255 = Aan"
+					}
+				},
+				{
+					"id": "temperature_unit",
+					"type": "checkbox",
+					"label": {
+						"en": "Temperature unit Kelvin",
+						"nl": "Temperatuureenheid in Kelvin"
+					},
+					"hint": {
+						"en": "Default is Celcius, Check on is Kelvin ",
+						"nl": "Standaard is Celcius, Check aan is Kelvin"
+					},
+					"value": false
+				},
+				{
+					"id": "temperature_delta",
+					"type": "number",
+					"label": {
+						"en": "Defines the temperature steps of the heating control.",
+						"nl": "Definieert de stappen van de temperatuurbesturing."
+					},
+					"value": 10,
+					"attr": {
+						"min": 0,
+						"max": 100
+					},
+					"hint": {
+						"en": "Value is multiplied by 0.1 °С/°F.   So 10 means 1°С/°F",
+						"nl": "Waarde wordt vermenigvuldigd met 0.1 °С/°F.   Dus 10 betekend 1°С/°F "
+					}
+				}
+			]
+		},
+				{
 			"id": "SRT321",
 			"name": {
 				"en": "SRT321 Thermostat",
@@ -77,10 +187,7 @@
 				"manufacturerId": 89,
 				"productTypeId": 1,
 				"wakeUpInterval": 1800,
-				"productId": [
-					3,
-					4
-				],
+				"productId": 3,
 				"learnmode": {
 					"instruction": {
 						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
