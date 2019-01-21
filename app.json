@@ -4,7 +4,7 @@
 		"en": "Secure / Horstmann",
 		"nl": "Secure / Horstmann"
 	},
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"compatibility": ">=1.1.9",
 	"description": {
 		"en": "Secure / Horstmann devices for Homey"
@@ -187,7 +187,7 @@
 				"manufacturerId": 89,
 				"productTypeId": 1,
 				"wakeUpInterval": 1800,
-				"productId": 3,
+				"productId": [3,5],
 				"learnmode": {
 					"instruction": {
 						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
