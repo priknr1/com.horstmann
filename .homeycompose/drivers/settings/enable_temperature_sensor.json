@@ -1,0 +1,27 @@
+{
+  "id": "enable_temperature_sensor",
+  "type": "dropdown",
+  "value": "255",
+  "zwave": {
+    "index": 1,
+    "size": 1,
+    "signed": false
+  },
+  "label": {
+    "en": "Temperature Sensor"
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Disabled"
+      }
+    },
+    {
+      "id": "255",
+      "label": {
+        "en": "Enabled"
+      }
+    }
+  ]
+}

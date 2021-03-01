@@ -1,504 +1,155 @@
 {
-	"id": "com.horstmann",
-	"name": {
-		"en": "Secure / Horstmann",
-		"nl": "Secure / Horstmann"
-	},
-	"version": "0.1.5",
-	"compatibility": ">=1.1.9",
-	"description": {
-		"en": "Secure / Horstmann devices for Homey"
-	},
-	"category": [
-		"climate"
-	],
-	"images": {
-		"large": "/assets/images/large.jpg",
-		"small": "/assets/images/small.jpg"
-	},
-	"author": {
-		"name": "Patrick van der Westen.",
-		"email": "pvdwesten@hotmail.com"
-	},
-  "capabilities": {
-    "custom_thermostat_mode": {
-      "type": "boolean",
-      "title": {
-        "en": "Thermostat mode",
-        "nl": "Thermostaat mode"
-      },
-      "getable": true,
-      "setable": false
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.securemeters.horstmann",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Secure Meters"
+  },
+  "description": {
+    "en": "Adds support for Secure (previously Horstmann) devices"
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "horstmann",
+      "secure",
+      "srt321"
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "hankdelang"
+      }
     }
   },
-	"drivers": [
-		{
-			"id": "SRT323",
-			"name": {
-				"en": "SRT323 Thermostat",
-				"nl": "SRT323 Thermostaat"
-			},
-			"class": "thermostat",
-			"capabilities": [
-				"custom_thermostat_mode",
-				"measure_temperature",
-				"target_temperature",
-				"measure_battery"
-			],
-			"mobile": {
-        "components": [
-          {
-            "capabilities": [
-			"custom_thermostat_mode"
-			],
-            "id": "icon"
-          },
-          {
-            "capabilities": [
-              "measure_battery"
-            ],
-            "id": "battery"
-          },
-          {
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "id": "sensor"
-          },
-          {
-            "capabilities": [
-              "target_temperature"
-            ],
-            "id": "thermostat"
-          }
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "name": "Hank de Lang",
+    "email": "hank@hank.se"
+  },
+  "source": "https://github.com/hankolsen/com.securemeters.horstmann",
+  "bugs": {
+    "url": "https://github.com/hankolsen/com.securemeters.horstmann/issues"
+  },
+  "drivers": [
+    {
+      "class": "thermostat",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "target_temperature",
+        "measure_temperature"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
         ]
       },
-			"zwave": {
-				"manufacturerId": 89,
-				"productTypeId": 1,
-				"wakeUpInterval": 1800,
-				"productId": 4,
-				"learnmode": {
-					"instruction": {
-						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
-						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
-					}
-				},
-				"associationGroups": [
-					1,2,3,4,5,6
-				]
-			},
-			"images": {
-				"large": "/drivers/SRT321/assets/images/large.jpg",
-				"small": "/drivers/SRT321/assets/images/small.jpg"
-			},
-			"settings": [
-				{
-					"id": "enable_temperature_sensor",
-					"type": "number",
-					"label": {
-						"en": "Enable Temperature Sensor",
-						"nl": "Zet temperatuur sensor aan"
-					},
-					"value": 128,
-					"attr": {
-						"min": 1,
-						"max": 255
-					},
-					"hint": {
-						"en": "1-127 = Off, 128-255 = On",
-						"nl": "1-127 = Uit, 128-255 = Aan"
-					}
-				},
-				{
-					"id": "temperature_unit",
-					"type": "checkbox",
-					"label": {
-						"en": "Temperature unit Kelvin",
-						"nl": "Temperatuureenheid in Kelvin"
-					},
-					"hint": {
-						"en": "Default is Celcius, Check on is Kelvin ",
-						"nl": "Standaard is Celcius, Check aan is Kelvin"
-					},
-					"value": false
-				},
-				{
-					"id": "temperature_delta",
-					"type": "number",
-					"label": {
-						"en": "Defines the temperature steps of the heating control.",
-						"nl": "Definieert de stappen van de temperatuurbesturing."
-					},
-					"value": 10,
-					"attr": {
-						"min": 0,
-						"max": 100
-					},
-					"hint": {
-						"en": "Value is multiplied by 0.1 °С/°F.   So 10 means 1°С/°F",
-						"nl": "Waarde wordt vermenigvuldigd met 0.1 °С/°F.   Dus 10 betekend 1°С/°F "
-					}
-				}
-			]
-		},
-				{
-			"id": "SRT321",
-			"name": {
-				"en": "SRT321 Thermostat",
-				"nl": "SRT321 Thermostaat"
-			},
-			"class": "thermostat",
-			"capabilities": [
-				"custom_thermostat_mode",
-				"measure_temperature",
-				"target_temperature",
-				"measure_battery"
-			],
-			"mobile": {
-        "components": [
-          {
-            "capabilities": [
-			"custom_thermostat_mode"
-			],
-            "id": "icon"
-          },
-          {
-            "capabilities": [
-              "measure_battery"
-            ],
-            "id": "battery"
-          },
-          {
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "id": "sensor"
-          },
-          {
-            "capabilities": [
-              "target_temperature"
-            ],
-            "id": "thermostat"
-          }
-        ]
+      "images": {
+        "large": "/drivers/srt321/assets/images/large.jpg",
+        "small": "/drivers/srt321/assets/images/small.jpg"
       },
-			"zwave": {
-				"manufacturerId": 89,
-				"productTypeId": 1,
-				"wakeUpInterval": 1800,
-				"productId": [3,5],
-				"learnmode": {
-					"instruction": {
-						"en": "Put thermostat in installer mode(dip switch 1 On), turn the dial to ‘L’ and press the dial.   Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
-						"nl": "Zet de thermostaat in installer mode(dip switch 1 On), draai de knop naar ‘L’ en druk op de knop.   Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
-					}
-				},
-				"associationGroups": [
-					1,2,3,4,5,6
-				]
-			},
-			"images": {
-				"large": "/drivers/SRT321/assets/images/large.jpg",
-				"small": "/drivers/SRT321/assets/images/small.jpg"
-			},
-			"settings": [
-				{
-					"id": "enable_temperature_sensor",
-					"type": "number",
-					"label": {
-						"en": "Enable Temperature Sensor",
-						"nl": "Zet temperatuur sensor aan"
-					},
-					"value": 128,
-					"attr": {
-						"min": 1,
-						"max": 255
-					},
-					"hint": {
-						"en": "1-127 = Off, 128-255 = On",
-						"nl": "1-127 = Uit, 128-255 = Aan"
-					}
-				},
-				{
-					"id": "temperature_unit",
-					"type": "checkbox",
-					"label": {
-						"en": "Temperature unit Kelvin",
-						"nl": "Temperatuureenheid in Kelvin"
-					},
-					"hint": {
-						"en": "Default is Celcius, Check on is Kelvin ",
-						"nl": "Standaard is Celcius, Check aan is Kelvin"
-					},
-					"value": false
-				},
-				{
-					"id": "temperature_delta",
-					"type": "number",
-					"label": {
-						"en": "Defines the temperature steps of the heating control.",
-						"nl": "Definieert de stappen van de temperatuurbesturing."
-					},
-					"value": 10,
-					"attr": {
-						"min": 0,
-						"max": 100
-					},
-					"hint": {
-						"en": "Value is multiplied by 0.1 °С/°F.   So 10 means 1°С/°F",
-						"nl": "Waarde wordt vermenigvuldigd met 0.1 °С/°F.   Dus 10 betekend 1°С/°F "
-					}
-				}
-			]
-		},
-		{
-			"id": "SES302",
-			"name": {
-				"en": "SES302 Temperature Sensor",
-				"nl": "SES302 Temperatuur sensor"
-			},
-			"class": "thermostat",
-			"capabilities": [
-				"measure_temperature",
-				"measure_battery"
-			],
-			"mobile": {
-        "components": [
-          {
-            "capabilities": [
-              "measure_battery"
-            ],
-            "id": "battery"
-          },
-          {
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "id": "sensor"
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
           }
-        ]
-			},
-			"zwave": {
-				"manufacturerId": 89,
-				"productTypeId": 13,
-				"wakeUpInterval": 1800,
-				"productId": 2,
-				"learnmode": {
-					"instruction": {
-						"en": "Press the button and hold it for at least 1 second, than release",
-						"nl": "Druk de knop minimaal 1 seconde in, laat daarna los"
-					}
-				},
-				"associationGroups": [
-					1,2,3,4,5,6
-				]
-			},
-			"images": {
-				"large": "/drivers/SES302/assets/images/large.jpg",
-				"small": "/drivers/SES302/assets/images/small.jpg"
-				},
-			"settings": [
-				{
-					"id": "Temp_Delta",
-					"type": "number",
-					"_size": 1,
-					"value": 1,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Delta Temperature (°C) "
-					},
-					"hint": {
-						"en": "Configure the delta based temperature report Unit: 0.1 °C.\nTo configure Delta temperature reporting to 2 °C. The value to configure is 20.\n"
-					}
-				},
-				{
-					"id": "Temp_Report_Interval",
-					"type": "number",
-					"_size": 1,
-					"value": 5,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Temp Reporting Intervals (mins)"
-					},
-					"hint": {
-						"en": "Configure the time interval based temperature report.\nValue in minutes\n"
-					}
-				}
-			]
-		},
-		{
-			"id": "SES303",
-			"name": {
-				"en": "SES303 Temperature/Humidity Sensor",
-				"nl": "SES303 Temperatuur/Vochtigheid sensor"
-			},
-			"class": "thermostat",
-			"capabilities": [
-				"measure_humidity",
-				"measure_temperature",
-				"measure_battery"
-			],
-			"mobile": {
-        "components": [
-          {
-            "capabilities": [
-              "measure_battery"
-            ],
-            "id": "battery"
-          },
-          {
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "id": "sensor"
-          },
-          {
-            "capabilities": [
-              "measure_humidity"
-            ],
-            "id": "sensor"
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "srt321",
+      "name": {
+        "en": "SRT321"
+      },
+      "zwave": {
+        "manufacturerId": 89,
+        "productTypeId": [
+          1
+        ],
+        "productId": [
+          3,
+          5
+        ],
+        "zwaveAllianceProductId": 1740,
+        "associationGroups": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "wakeUpInterval": 1800,
+        "learnmode": {
+          "image": "/drivers/srt321/assets/images/learnmode.svg",
+          "instruction": {
+            "en": "Put the thermostat in installer mode by setting DIL switch 1 on the back of the unit to 'ON' position.\n Scroll through the function menu by rotating the dial, select 'L' and press the dial.\n  Now the character 'L' starts flashing.\nAfter successful pairing the display changes to 'LP'."
           }
-        ]
-			},
-			"zwave": {
-				"manufacturerId": 89,
-				"productTypeId": 13,
-				"wakeUpInterval": 1800,
-				"productId": 3,
-				"learnmode": {
-					"instruction": {
-						"en": "Press the button and hold it for at least 1 second, than release",
-						"nl": "Druk de knop minimaal 1 seconde in, laat daarna los"
-					}
-				},
-				"associationGroups": [
-					1,2,3,4,5,6
-				]
-			},
-			"images": {
-				"large": "/drivers/SES303/assets/images/large.jpg",
-				"small": "/drivers/SES303/assets/images/small.jpg"
-			},
-			"settings": [
-				{
-					"id": "Temp_Delta",
-					"value": 1,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Delta Temperature (°C) "
-					},
-					"hint": {
-						"en": "Configure the delta based temperature report Unit: 0.1 °C.\nTo configure Delta temperature reporting to 2 °C. The value to configure is 20.\n"
-					},
-					"_size": 1,
-					"type": "number"
-				},
-				{
-					"id": "Temp_Report_Interval",
-					"value": 5,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Temp Reporting Intervals (mins)"
-					},
-					"hint": {
-						"en": "Configure the time interval based temperature report.\nValue in minutes\n"
-					},
-					"_size": 1,
-					"type": "number"
-				},
-				{
-					"id": "Humidity_Delta",
-					"value": 1,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Delta Humidity (%)"
-					},
-					"hint": {
-						"en": "Configure the delta based humidity report Unit: 0.1 %.\nTo configure Delta humidity reporting to 2 %Rh. The value to configure is 20.\n"
-					},
-					"_size": 1,
-					"type": "number"
-					},
-				{
-					"id": "Humidity_Report_interval",
-					"value": 5,
-					"attr": {
-						"min": 1,
-						"max": 127
-					},
-					"label": {
-						"en": "Humidity Reporting Interval (mins)"
-					},
-					"hint": {
-						"en": "Configure the time interval based humidity report.\nValue in minutes\n"
-					},
-					"_size": 1,
-					"type": "number"
-				}
-			]
-		},
-		{
-			"id": "HRT4ZW",
-			"name": {
-				"en": "HRT4ZW Boiler control switch ",
-				"nl": "HRT4ZW ketel schakelaar"
-			},
-			"class": "socket",
-			"capabilities": ["onoff"],
-			"zwave": {
-				"manufacturerId": 89,
-				"productTypeId": 3,
-				"productId": [
-					1,5
-				],
-				"learnmode": {
-					"instruction": {
-						"en": "Press the Network button.  Full instructions: https://forum.athom.com/discussion/comment/42270/#Comment_42270",
-						"nl": "Druk op de netwerk knop.  Volledige instructies: https://forum.athom.com/discussion/comment/42270/#Comment_42270"
-					}
-				},
-				"associationGroups": [
-					1,2,3
-				]
-			},
-			"images": {
-				"large": "/drivers/HRT4ZW/assets/images/large.jpg",
-				"small": "/drivers/HRT4ZW/assets/images/small.jpg"
-			}
-		}
-	],
-	"flow": {
-		"triggers": [
-			{
-				"id": "battery_alarm",
-				"title": {
-					"en": "The battery alarm turned on",
-					"nl": "De batterijwaarschuwing gaat aan"
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=SRT321"
-					}
-				]
-			}
-		]
-	}
+        }
+      },
+      "settings": [
+        {
+          "id": "enable_temperature_sensor",
+          "type": "dropdown",
+          "value": "255",
+          "zwave": {
+            "index": 1,
+            "size": 1,
+            "signed": false
+          },
+          "label": {
+            "en": "Temperature Sensor"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Disabled"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Enabled"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_delta",
+          "type": "number",
+          "value": 10,
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "label": {
+            "en": "Delta Temperature in 0.1° steps"
+          },
+          "attr": {
+            "min": 0,
+            "max": 100
+          },
+          "hint": {
+            "en": "Value is multiplied by 0.1 °С/°F. So 10 means 1°С/°F"
+          }
+        }
+      ]
+    }
+  ]
 }
